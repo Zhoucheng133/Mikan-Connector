@@ -5,6 +5,7 @@
   "main": "main.js",
   "author": "Zhou Cheng",
   "license": "MIT",
+  "type": "module",
   "dependencies": {
     "axios": "^1.6.8",
     "dayjs": "^1.11.10",
