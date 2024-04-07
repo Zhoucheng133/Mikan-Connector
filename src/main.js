@@ -18,3 +18,36 @@ function ariaRequest(aria2Link, aria2Secret, btLink){
   }
   axios.post(aria2Link, data);
 }
+
+async function rssRequest(rssLink){
+  var response;
+
+  try {
+    response=await axios.get(rssLink);
+  } catch (error) {
+    console.log("【Point1】"+error);
+    return ["ERR"];
+  }
+  const parser = new XMLParser();
+  let jObj = parser.parse(response.data);
+  var list=jObj.rss.channel.item
+
+  var matches = [...response.data.matchAll(/url="([^"]+)"/g)];
+
+  if(matches.length!=list.length){
+    console.log("return []");
+    return ["ERR"];
+  }
+  try {
+    matches.forEach(function(match, index) {
+      var url = match[1];
+      list[index].media=url;
+      list[index].id=index;
+    });
+  } catch (error) {
+    console.log("【Point2】"+error);
+    return ["ERR"];
+  }
+
+  return list;
+}
