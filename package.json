@@ -1,0 +1,8 @@
+{
+  "name": "mikan_connector",
+  "version": "1.0.0",
+  "description": "add mikan rss to aria2",
+  "main": "main.js",
+  "author": "Zhou Cheng",
+  "license": "MIT"
+}
