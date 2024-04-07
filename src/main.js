@@ -4,18 +4,34 @@ import { XMLParser} from "fast-xml-parser";
 import dayjs from "dayjs";
 
 function ariaRequest(btLink){
-  const data={
-    "jsonrpc": "2.0",
-    "method": "aria2.addUri",
-    "id": 1,
-    "params": [
-      aria2Secret=="" ? "":`token:${aria2Secret}`,
-      [btLink], {
-        "split": "5",
-        "max-connection-per-server": "5",
-        "seed-ratio": "0"
-      }
-    ]
+  var data={};
+  if(aria2Secret==""){
+    data={
+      "jsonrpc": "2.0",
+      "method": "aria2.addUri",
+      "id": 1,
+      "params": [
+        [btLink], {
+          "split": "5",
+          "max-connection-per-server": "5",
+          "seed-ratio": "0"
+        }
+      ]
+    }
+  }else{
+    data={
+      "jsonrpc": "2.0",
+      "method": "aria2.addUri",
+      "id": 1,
+      "params": [
+        `token:${aria2Secret}`,
+        [btLink], {
+          "split": "5",
+          "max-connection-per-server": "5",
+          "seed-ratio": "0"
+        }
+      ]
+    }
   }
   axios.post(aria2Link, data);
 }
