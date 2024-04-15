@@ -2,6 +2,8 @@
 
 ## 使用
 
+注意，如果你想要通过Mikan的[列表](https://mikanime.tv/Home/Classic)中筛选所需要下载的番剧，移步到[Mikan Connector Python](https://github.com/Zhoucheng133/Mikan-Connector-Python)，本项目是用于通过[Mikan订阅列表](https://mikanime.tv/Home/MyBangumi)下载的脚本
+
 如果你希望在一般的系统中使用，你可以尝试使用[Motrix](https://motrix.app/)，如果你在服务器上使用，建议使用Docker安装Aria2
 
 ### 通用步骤
